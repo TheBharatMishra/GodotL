@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://v8534yevfl1q"]
+
+[ext_resource type="Texture2D" uid="uid://bskm3w5xka0ac" path="res://graphics/player/player.png" id="1_4f3fo"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_rkuvd"]
+[ext_resource type="Texture2D" uid="uid://cqis5wavy83p7" path="res://graphics/projectiles/blue.png" id="2_nbusb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f0ifj"]
+radius = 59.3043
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_rkuvd")
+
+[node name="PlayerImage" type="Sprite2D" parent="."]
+position = Vector2(6, -42)
+texture = ExtResource("1_4f3fo")
+
+[node name="LaserImage" type="Sprite2D" parent="PlayerImage"]
+position = Vector2(15, -207)
+texture = ExtResource("2_nbusb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f0ifj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="GrenadeThrowTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="GrenadeThrowTimer" to="." method="_on_grenade_throw_timer_timeout"]
