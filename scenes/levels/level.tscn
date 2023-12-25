@@ -13,5 +13,8 @@ script = ExtResource("1_puiyl")
 position = Vector2(1082, 278)
 scale = Vector2(0.5, 0.5)
 
+[node name="Projectiles" type="Node2D" parent="."]
+
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
+[connection signal="grenade_sig" from="Player" to="." method="_on_player_grenade_sig"]
 [connection signal="laser_sig" from="Player" to="." method="_on_player_laser_sig"]

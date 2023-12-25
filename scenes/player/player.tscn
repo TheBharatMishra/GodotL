@@ -26,5 +26,17 @@ wait_time = 0.5
 
 [node name="GrenadeThrowTimer" type="Timer" parent="."]
 
+[node name="LaserStartPosition" type="Node2D" parent="."]
+position = Vector2(-2, 5)
+
+[node name="Marker2D" type="Marker2D" parent="LaserStartPosition"]
+position = Vector2(18, -138)
+
+[node name="Marker2D2" type="Marker2D" parent="LaserStartPosition"]
+position = Vector2(36, -138)
+
+[node name="Marker2D3" type="Marker2D" parent="LaserStartPosition"]
+position = Vector2(27, -143)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="GrenadeThrowTimer" to="." method="_on_grenade_throw_timer_timeout"]
